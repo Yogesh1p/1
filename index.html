@@ -3,98 +3,36 @@
 <head>
   <title>Yogesh P</title>
   <style>
-    /* Add the necessary CSS styles for the switch toggle */
-    .switch__toggle {
+    /* ... (existing CSS styles) ... */
+
+    /* Add styles for the document section */
+    #documentSection {
       position: fixed;
       top: 10px;
-      left: 10px;
+      right: 10px;
       z-index: 9999;
-      cursor: pointer;
     }
-    
-    .switch__slider {
-      position: relative;
-      width: 40px;
-      height: 20px;
-      background-color: #333;
-      border-radius: 20px;
-      transition: background-color 0.2s ease;
+
+    /* Add styles for the document link */
+    #documentLink {
+      display: block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
     }
-    
-    .switch__slider::before {
-      content: "";
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background-color: #fff;
-      transition: transform 0.2s ease;
-    }
-    
-    .switch__slider.on {
-      background-color: #6c757d;
-    }
-    
-    .switch__slider.on::before {
-      transform: translateX(20px);
-    }
-    
-    /* Add any other styles you need */
-    body {
-      background-color: #fff; /* Light mode background color */
-      color: #000; /* Light mode text color */
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-    
-    .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      position: relative;
-    }
-    
-    img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Light mode box shadow */
-      transition: box-shadow 0.2s ease;
-    }
-    
-    video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
-    
-    /* Additional styles for dark mode */
-    body.dark-mode {
-      background-color: #000; /* Dark mode background color */
-      color: #fff; /* Dark mode text color */
-    }
-    
-    body.dark-mode img {
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Dark mode box shadow */
-    }
+
   </style>
 </head>
 <body>
   <!-- Add the switch toggle HTML -->
-  <div class="switch__toggle" onclick="toggleMode()">
-    <div class="switch__slider" id="switchSlider"></div>
+  <!-- ... (existing HTML) ... -->
+
+  <!-- Add the document section -->
+  <div id="documentSection">
+    <a href="path/to/your/id_card.jpg" id="documentLink" target="Picsart_23-07-27_17-30-59-246.jpg">ID Card</a>
   </div>
 
   <div class="container">
@@ -108,22 +46,7 @@
   </video>
 
   <script>
-    var video = document.getElementById('backgroundVideo');
-    var switchSlider = document.getElementById('switchSlider');
-
-    function toggleMode() {
-      var body = document.body;
-
-      if (body.classList.contains('dark-mode')) {
-        body.classList.remove('dark-mode');
-        switchSlider.classList.remove('on');
-        video.src = 'video-bg-light.mp4'; // Set the video source for light mode
-      } else {
-        body.classList.add('dark-mode');
-        switchSlider.classList.add('on');
-        video.src = 'video-bg-dark-negate.mp4'; // Set the video source to an empty string for dark mode
-      }
-    }
+    // ... (existing JavaScript code) ...
   </script>
 </body>
 </html>
