@@ -153,17 +153,21 @@
       const now = new Date().getTime();
       const elapsedTime = now - startDate;
       const yearsElapsed = Math.floor(elapsedTime / (1000 * 60 * 60 * 24 * 365));
-      const monthsRemaining = Math.floor((targetDate - now) / (1000 * 60 * 60 * 24 * 30));
-      const daysRemaining = Math.floor((targetDate - now) / (1000 * 60 * 60 * 24));
+      const remainingMonths = Math.floor(remainingTimeMillis / (1000 * 60 * 60 * 24 * 30));
+      const remainingDays = Math.floor((remainingTimeMillis % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+      const remainingHours = Math.floor((remainingTimeMillis % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const remainingMinutes = Math.floor((remainingTimeMillis % (1000 * 60 * 60)) / (1000 * 60));
+      const remainingSeconds = Math.floor((remainingTimeMillis % (1000 * 60)) / 1000);
       const percentageElapsed = (yearsElapsed / totalYears) * 100;
 
      // Update the progress bar width
       document.getElementById("progress-bar").style.width = `${percentageElapsed}%`;
       document.getElementById("progress-text").textContent = `${Math.round(percentageElapsed)}%`;
 
+   // Display the remaining time including months, days, hours, minutes, and seconds
       document.getElementById("countdown").innerHTML = `
-        <p>Time spent: ${yearsElapsed}yrs</p>
-        <p>Balance: ${monthsRemaining} months / ${daysRemaining} days</p>
+        <p>Time spent: ${yearsElapsed} yrs</p>
+        <p>Remaining: ${remainingMonths} months ${remainingDays} days ${remainingHours} hrs ${remainingMinutes} mins ${remainingSeconds} secs</p>
       `;
 
       if (yearsElapsed >= totalYears) {
