@@ -145,6 +145,7 @@
       const elapsedTime = now - startDate;
       const yearsElapsed = Math.floor(elapsedTime / (1000 * 60 * 60 * 24 * 365));
       const monthsRemaining = Math.floor((targetDate - now) / (1000 * 60 * 60 * 24 * 30));
+      const daysRemaining = Math.floor((targetDate - now) / (1000 * 60 * 60 * 24));
       const percentageElapsed = (yearsElapsed / totalYears) * 100;
 
       // Update the progress bar width
@@ -152,7 +153,7 @@
 
       document.getElementById("countdown").innerHTML = `
         <p>Time spent: ${yearsElapsed}yrs</p>
-        <p>Balance: ${monthsRemaining}months</p>
+        <p>Balance: ${monthsRemaining} months / ${daysRemaining} days</p>
       `;
 
       if (yearsElapsed >= totalYears) {
