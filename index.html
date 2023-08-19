@@ -127,9 +127,22 @@
       justify-content: center;
       align-items: center;
     }
-    #progress-text {
+   #progress-text {
       color: white;
-      font-size: 10px;
+      font-size: 14px; /* Adjust the font size to your preference */
+    }
+
+    /* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+    @media screen and (max-width: 768px) {
+      #progress-container {
+        width: 80%; /* Adjust the width for mobile screens */
+      }
+      #countdown {
+        font-size: 18px; /* Adjust the font size for mobile screens */
+      }
+      #progress-text {
+        font-size: 12px; /* Adjust the font size for mobile screens */
+      }
     }
   </style>
 </head>
@@ -142,7 +155,7 @@
     </div>
   </div>
 
-<script>
+  <script>
     // Set the target date to April 30, 2052
     const targetDate = new Date("April 30, 2052").getTime();
     const startDate = new Date("April 30, 2002").getTime();
