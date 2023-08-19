@@ -102,10 +102,10 @@
   <title>Countdown Timer</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family:Monaco, monospace;
     }
     #countdown {
-      font-size: 24px;
+      font-size: 20px;
       text-align: center;
       margin-top: 20px;
     }
@@ -123,6 +123,13 @@
       height: 100%;
       background-color: black;
       position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #progress-text {
+      color: white;
+      font-size: 10px;
     }
   </style>
 </head>
@@ -130,7 +137,9 @@
   <h1></h1>
   <div id="countdown"></div>
   <div id="progress-container">
-    <div id="progress-bar"></div>
+    <div id="progress-bar">
+      <div id="progress-text">0%</div>
+    </div>
   </div>
 
   <script>
@@ -148,8 +157,9 @@
       const daysRemaining = Math.floor((targetDate - now) / (1000 * 60 * 60 * 24));
       const percentageElapsed = (yearsElapsed / totalYears) * 100;
 
-      // Update the progress bar width
+     // Update the progress bar width
       document.getElementById("progress-bar").style.width = `${percentageElapsed}%`;
+      document.getElementById("progress-text").textContent = `${Math.round(percentageElapsed)}%`;
 
       document.getElementById("countdown").innerHTML = `
         <p>Time spent: ${yearsElapsed}yrs</p>
