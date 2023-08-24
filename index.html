@@ -4,46 +4,6 @@
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7">
   <title>Time</title>
- <style>
-        /* Your existing styles */
-
-        /* Media query for screens with a maximum width of 768px (typical for mobile devices) */
-        @media (max-width: 768px) {
-            #progress-container {
-                width: 80%; /* Adjust the width for mobile screens */
-            }
-            #progress-bar {
-                  width: 100%;
-             }
-
-            #countdown {
-                font-size: 18px; /* Adjust the font size for mobile screens */
-            }
-            #progress-text {
-                font-size: 12px; /* Adjust the font size for mobile screens */
-            }
-            /* Add more styles for mobile screens as needed */
-        }
-    </style>
-      <style>
-    /* Your existing CSS styles */
-
-    /* Media query for screens with a maximum width of 768px (typical for mobile devices) */
-    @media (max-width: 768px) {
-        #profile-info {
-            position: relative;
-        }
-
-        #time-spent {
-            position: absolute;
-            top: 220px; /* Adjust the top value to your desired position */
-            left: 0;
-        }
-    }
-
-    /* Additional CSS styles for other elements, if needed */
-</style>
-
 
   <style>
 }
@@ -229,11 +189,10 @@
 
       // Display the remaining time including months, days, hours, minutes, and seconds
       document.getElementById("countdown").innerHTML = `
-       <div id="time-spent-container">
        <p>Time spent: ${yearsElapsed} yrs</p>
         <p>Remaining: ${remainingMonths} months ${remainingDays} days ${remainingHours} hrs ${remainingMinutes} mins ${remainingSeconds} secs</p>
       `;
-          </div>
+
 
       if (yearsElapsed >= totalYears) {
         clearInterval(interval);
