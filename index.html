@@ -25,7 +25,25 @@
             /* Add more styles for mobile screens as needed */
         }
     </style>
-      
+      <style>
+    /* Your existing CSS styles */
+
+    /* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+    @media (max-width: 768px) {
+        #profile-info {
+            position: relative;
+        }
+
+        #time-spent {
+            position: absolute;
+            top: 220px; /* Adjust the top value to your desired position */
+            left: 0;
+        }
+    }
+
+    /* Additional CSS styles for other elements, if needed */
+</style>
+
 
   <style>
 }
@@ -211,9 +229,11 @@
 
       // Display the remaining time including months, days, hours, minutes, and seconds
       document.getElementById("countdown").innerHTML = `
-        <p>Time spent: ${yearsElapsed} yrs</p>
+       <div id="time-spent-container">
+       <p>Time spent: ${yearsElapsed} yrs</p>
         <p>Remaining: ${remainingMonths} months ${remainingDays} days ${remainingHours} hrs ${remainingMinutes} mins ${remainingSeconds} secs</p>
       `;
+          </div>
 
       if (yearsElapsed >= totalYears) {
         clearInterval(interval);
