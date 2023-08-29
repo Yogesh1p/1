@@ -131,140 +131,6 @@
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Dark mode box shadow */
     }
   </style>
-</head>
-<body>
-  <!-- Add the switch toggle HTML -->
-  <div class="switch__toggle" onclick="toggleMode()">
-    <div class="switch__slider" id="switchSlider"></div>
-  </div>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Countdown Timer</title>
-  <style>
-    body {
-      font-family:Monaco, monospace;
-    }
-    #countdown {
-      font-size: 20px;
-      text-align: center;
-      margin-top: 20px;
-    }
-    #progress-container {
-      width: 40%;
-      margin: 0 auto;
-      border: 1px solid #ccc;
-      height: 10px;
-      background-color: #f1f1f1;
-      position: relative;
-      overflow: hidden;
-    }
-    #progress-bar {
-      width: 0;
-      height: 100%;
-      background-color: black;
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-   #progress-text {
-      color: white;
-      font-size: 14px; /* Adjust the font size to your preference */
-    }
-
-  
-  </style>
-</head>
-<body>
-  <h1></h1>
-  <div id="countdown"></div>
-  <div id="progress-container">
-    <div id="progress-bar">
-      <div id="progress-text">0%</div>
-    </div>
-  </div>
-
-
-  <script>
-    // Set the target date to April 30, 2052
-    const targetDate = new Date("April 30, 2052").getTime();
-    const startDate = new Date("April 30, 2002").getTime();
-    const totalYears = 50;
-  
-    // Update the countdown and percentage every second
-    const interval = setInterval(function() {
-      const now = new Date().getTime();
-      const elapsedTime = now - startDate;
-      const yearsElapsed = Math.floor(elapsedTime / (1000 * 60 * 60 * 24 * 365));
-      const remainingTimeMillis = targetDate - now;
-      const remainingMonths = Math.floor(remainingTimeMillis / (1000 * 60 * 60 * 24 * 30));
-      const remainingDays = Math.floor((remainingTimeMillis % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-      const remainingHours = Math.floor((remainingTimeMillis % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const remainingMinutes = Math.floor((remainingTimeMillis % (1000 * 60 * 60)) / (1000 * 60));
-      const remainingSeconds = Math.floor((remainingTimeMillis % (1000 * 60)) / 1000);
-      const percentageElapsed = (yearsElapsed / totalYears) * 100;
-
-      // Update the progress bar width
-      document.getElementById("progress-bar").style.width = `${percentageElapsed}%`;
-      document.getElementById("progress-text").textContent = `${Math.round(percentageElapsed)}%`;
-
-      // Display the remaining time including months, days, hours, minutes, and seconds
-      document.getElementById("countdown").innerHTML = `
-       <p>Time spent: ${yearsElapsed} yrs</p>
-        <p>Remaining: ${remainingMonths} months ${remainingDays} days ${remainingHours} hrs ${remainingMinutes} mins ${remainingSeconds} secs</p>
-      `;
-
-
-      if (yearsElapsed >= totalYears) {
-        clearInterval(interval);
-        document.getElementById("countdown").innerHTML = "EDITH!";
-      }
-    }, 1000); // Update every 1 second
-  </script>
-</body>
-</html>
-
-  <div class="container">
-         <div id="animation-container"></div>
-    <canvas id="profileCanvas" width="200" height="200"></canvas>
-
-    <h1>Yogesh P</h1>
-    <p>Human</p>
-    <p>I know of no better life purpose than to perish in attempting the great and the impossible.</p>
-  </div>
-
-  <video id="backgroundVideo" autoplay loop muted>
-    <source src="video-bg-light.mp4" type="video/mp4">
-  </video>
-
-  <script>
-    var video = document.getElementById('backgroundVideo');
-    var switchSlider = document.getElementById('switchSlider');
-
-    function toggleMode() {
-      var body = document.body;
-
-      if (body.classList.contains('dark-mode')) {
-        body.classList.remove('dark-mode');
-        switchSlider.classList.remove('on');
-        video.src = 'video-bg-light.mp4'; // Set the video source for light mode
-      } else {
-        body.classList.add('dark-mode');
-        switchSlider.classList.add('on');
-        video.src = 'video-bg-dark-negate.mp4'; // Set the video source to an empty string for dark mode
-      }
-    }
-  </script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Your Page Title</title>
-    <!-- Include any necessary external scripts or stylesheets here -->
 <style>
 body {
   height: 100vh;
@@ -529,5 +395,132 @@ const molecule = new Molecule();
 animationContainer.appendChild(molecule);
 
     </script>
+</head>
+<body>
+  <!-- Add the switch toggle HTML -->
+  <div class="switch__toggle" onclick="toggleMode()">
+    <div class="switch__slider" id="switchSlider"></div>
+  </div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Timer</title>
+  <style>
+    body {
+      font-family:Monaco, monospace;
+    }
+    #countdown {
+      font-size: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    #progress-container {
+      width: 40%;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      height: 10px;
+      background-color: #f1f1f1;
+      position: relative;
+      overflow: hidden;
+    }
+    #progress-bar {
+      width: 0;
+      height: 100%;
+      background-color: black;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   #progress-text {
+      color: white;
+      font-size: 14px; /* Adjust the font size to your preference */
+    }
+
+  
+  </style>
+</head>
+<body>
+  <h1></h1>
+  <div id="countdown"></div>
+  <div id="progress-container">
+    <div id="progress-bar">
+      <div id="progress-text">0%</div>
+    </div>
+  </div>
+
+
+  <script>
+    // Set the target date to April 30, 2052
+    const targetDate = new Date("April 30, 2052").getTime();
+    const startDate = new Date("April 30, 2002").getTime();
+    const totalYears = 50;
+  
+    // Update the countdown and percentage every second
+    const interval = setInterval(function() {
+      const now = new Date().getTime();
+      const elapsedTime = now - startDate;
+      const yearsElapsed = Math.floor(elapsedTime / (1000 * 60 * 60 * 24 * 365));
+      const remainingTimeMillis = targetDate - now;
+      const remainingMonths = Math.floor(remainingTimeMillis / (1000 * 60 * 60 * 24 * 30));
+      const remainingDays = Math.floor((remainingTimeMillis % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+      const remainingHours = Math.floor((remainingTimeMillis % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const remainingMinutes = Math.floor((remainingTimeMillis % (1000 * 60 * 60)) / (1000 * 60));
+      const remainingSeconds = Math.floor((remainingTimeMillis % (1000 * 60)) / 1000);
+      const percentageElapsed = (yearsElapsed / totalYears) * 100;
+
+      // Update the progress bar width
+      document.getElementById("progress-bar").style.width = `${percentageElapsed}%`;
+      document.getElementById("progress-text").textContent = `${Math.round(percentageElapsed)}%`;
+
+      // Display the remaining time including months, days, hours, minutes, and seconds
+      document.getElementById("countdown").innerHTML = `
+       <p>Time spent: ${yearsElapsed} yrs</p>
+        <p>Remaining: ${remainingMonths} months ${remainingDays} days ${remainingHours} hrs ${remainingMinutes} mins ${remainingSeconds} secs</p>
+      `;
+
+
+      if (yearsElapsed >= totalYears) {
+        clearInterval(interval);
+        document.getElementById("countdown").innerHTML = "EDITH!";
+      }
+    }, 1000); // Update every 1 second
+  </script>
 </body>
 </html>
+
+  <div class="container">
+         <div id="animation-container"></div>
+    <canvas id="profileCanvas" width="200" height="200"></canvas>
+
+    <h1>Yogesh P</h1>
+    <p>Human</p>
+    <p>I know of no better life purpose than to perish in attempting the great and the impossible.</p>
+  </div>
+
+  <video id="backgroundVideo" autoplay loop muted>
+    <source src="video-bg-light.mp4" type="video/mp4">
+  </video>
+
+  <script>
+    var video = document.getElementById('backgroundVideo');
+    var switchSlider = document.getElementById('switchSlider');
+
+    function toggleMode() {
+      var body = document.body;
+
+      if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        switchSlider.classList.remove('on');
+        video.src = 'video-bg-light.mp4'; // Set the video source for light mode
+      } else {
+        body.classList.add('dark-mode');
+        switchSlider.classList.add('on');
+        video.src = 'video-bg-dark-negate.mp4'; // Set the video source to an empty string for dark mode
+      }
+    }
+  </script>
+
+</body>
+</html>
+
