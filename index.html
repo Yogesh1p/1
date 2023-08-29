@@ -226,6 +226,7 @@
 </html>
 
   <div class="container">
+         <div id="animation-container"></div>
     <canvas id="profileCanvas" width="200" height="200"></canvas>
 
     <h1>Yogesh P</h1>
@@ -271,6 +272,15 @@ body {
   background-image:radial-gradient(circle farthest-corner, #060A33, #000000);
   background-repeat: no-repeat;
 }
+      #animation-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Adjust the z-index as needed */
+}
+
 </style>
 </head>
 <body>
@@ -514,6 +524,9 @@ class Molecule extends THREE.Object3D{
 }
 
 new World();
+const animationContainer = document.getElementById("animation-container");
+const molecule = new Molecule();
+animationContainer.appendChild(molecule);
 
     </script>
 </body>
