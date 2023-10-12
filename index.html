@@ -195,40 +195,56 @@ body {
 
 
   <script>
-    // Set the target date to April 30, 2052
-    const targetDate = new Date("April 30, 2052").getTime();
-    const startDate = new Date("April 30, 2002").getTime();
-    const totalYears = 50;
-  
-    // Update the countdown and percentage every second
-    const interval = setInterval(function() {
-      const now = new Date().getTime();
-      const elapsedTime = now - startDate;
-      const yearsElapsed = parseFloat(Math.round((elapsedTime / (1000 * 60 * 60 * 24 * 365.25)) * 100000000000) / 100000000000).toFixed(11);
-      const remainingTimeMillis = targetDate - now;
-      const remainingMonths = Math.floor(remainingTimeMillis / (1000 * 60 * 60 * 24 * 30));
-      const remainingDays = Math.floor((remainingTimeMillis % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
-      const remainingHours = Math.floor((remainingTimeMillis % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const remainingMinutes = Math.floor((remainingTimeMillis % (1000 * 60 * 60)) / (1000 * 60));
-      const remainingSeconds = Math.floor((remainingTimeMillis % (1000 * 60)) / 1000);
-      const percentageElapsed = (yearsElapsed / totalYears) * 100;
+   // Set the target date to April 30, 2052
+const targetDate = new Date("April 30, 2052").getTime();
+const startDate = new Date("April 30, 2002").getTime();
+const totalYears = 50;
 
-      // Update the progress bar width
-      document.getElementById("progress-bar").style.width = `${percentageElapsed}%`;
-      document.getElementById("progress-text").textContent = `${Math.round(percentageElapsed)}%`;
+function updateCountdown() {
+  const now = new Date().getTime();
+  const elapsedTime = now - startDate;
+  const remainingTimeMillis = targetDate - now;
 
-      // Display the remaining time including months, days, hours, minutes, and seconds
-      document.getElementById("countdown").innerHTML = `
-      <a href="https://www.notion.so/b341e04a9aa14cd889f76d20d9873ed5?v=40f230f395e1477bb29eccc5e28de238&pvs=4" class="link-style" target="_blank">Time spent: ${yearsElapsed} yrs</a>
-        <p>Remaining: ${remainingMonths} months ${remainingDays} days ${remainingHours} hrs ${remainingMinutes} mins ${remainingSeconds} secs</p>
-      `;
+  let yearsElapsed;
+  if (now >= targetDate) {
+    yearsElapsed = totalYears;
+  } else {
+    yearsElapsed = parseFloat(Math.round((elapsedTime / (1000 * 60 * 60 * 24 * 365.25)) * 100000000000) / 100000000000).toFixed(11);
+  }
 
+  // Update the progress bar width
+  const percentageElapsed = (yearsElapsed / totalYears) * 100;
+  document.getElementById("progress-bar").style.width = `${percentageElapsed}%`;
+  document.getElementById("progress-text").textContent = `${Math.round(percentageElapsed)}%`;
 
-      if (yearsElapsed >= totalYears) {
-        clearInterval(interval);
-        document.getElementById("countdown").innerHTML = "EDITH!";
-      }
-    }, 10); // Update every 1/100 second
+  if (now >= targetDate) {
+    document.getElementById("countdown").innerHTML = `
+      <p>Time spent: ${yearsElapsed} yrs</p>
+      <p>EDITH!</p>
+    `;
+  } else {
+    const remainingMonths = Math.floor(remainingTimeMillis / (1000 * 60 * 60 * 24 * 30));
+    const remainingDays = Math.floor((remainingTimeMillis % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+    const remainingHours = Math.floor((remainingTimeMillis % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const remainingMinutes = Math.floor((remainingTimeMillis % (1000 * 60 * 60)) / (1000 * 60));
+    const remainingSeconds = Math.floor((remainingTimeMillis % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML = `
+      <p>Time spent: ${yearsElapsed} yrs</p>
+      <p>Remaining: ${remainingMonths} months ${remainingDays} days ${remainingHours} hrs ${remainingMinutes} mins ${remainingSeconds} secs</p>
+    `;
+  }
+
+  if (now >= targetDate) {
+    return;
+  }
+
+  requestAnimationFrame(updateCountdown);
+}
+
+// Initial call to start the animation loop
+updateCountdown();
+
   </script>
 </body>
 </html>
