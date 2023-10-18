@@ -230,6 +230,8 @@ function updateCountdown() {
     const remainingSeconds = Math.floor((remainingTimeMillis % (1000 * 60)) / 1000);
 
     document.getElementById("countdown").innerHTML = `
+    <p> </p>
+    <p> </p>
       <p>Time spent: ${yearsElapsed} yrs</p>
       <p>Remaining: ${remainingMonths} months ${remainingDays} days ${remainingHours} hrs ${remainingMinutes} mins ${remainingSeconds} secs</p>
     `;
